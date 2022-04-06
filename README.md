@@ -1,7 +1,7 @@
 # Final website for CS401
 
-Name: YOUR NAME HERE
-email: YOUR EMAIL HERE
+Name: Keegan Hanes
+email: keeganhanes@u.boisestate.edu
 
 ## How to run this website
 
