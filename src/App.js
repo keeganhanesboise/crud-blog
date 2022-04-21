@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' exact element={<Entries/>}/>
         <Route path='/new' element={<NewEntries/>}/>
-        <Route path='/edit' element={<EditEntries/>}/>
+        <Route path='/edit/:id' element={<EditEntries/>}/>
         <Route path='/delete' element={<DeleteEntries/>}/>
       </Routes>
     </Router>
