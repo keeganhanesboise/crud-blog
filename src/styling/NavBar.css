@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Libre+Baskerville&display=swap');
+
+#NavBar {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 1vw 1vw 1vw;
+    background-color: #41B3A3;
+    font-family: 'Inter', sans-serif;
+    z-index: 200;
+}
+
+.Link {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: white;
+    border-width: 2px;
+    text-decoration: none;
+    color: white;
+    padding: 0.5vw 0.5vw 0.5vw 0.5vw;
+}
+
+.Link:hover {
+    border-color: #E8A87C;
+    color: #E8A87C;
+}
+
+#PageContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Libre+Baskerville&display=swap');
+
+#TitleCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#TitleDecoration {
+    display: flex;
+    align-items: center;
+}
+
+#LeftDecoration {
+    width: 40vw;
+    height: 5px;
+    background-color: #41B3A3;
+}
+
+#RightDecoration {
+    width: 40vw;
+    height: 5px;
+    background-color: #41B3A3;
+}
+
+h1 {
+    font-size: 4vw;
+    font-family: 'Inter', sans-serif;
+    color: #aaaaaa;
+}
+
+h2 {
+    font-size: 1.5vw;
+    font-family: 'Inter', sans-serif;
+    color: #aaaaaa;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
