@@ -6,13 +6,16 @@ const { default: mongoose } = require('mongoose');
 const entryRoutes = express.Router();
 const PORT = 4000;
 
+require("dotenv").config({ path: "./config.env" });
 let Entry = require('./entries');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/entries', entryRoutes);
 
-mongoose.connect('mongodb://127.0.0.1:27017/entries', { useNewUrlParser: true });
+const database = process.env.ATLAS_URI;
+
+mongoose.connect(database, { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {

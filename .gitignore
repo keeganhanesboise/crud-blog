@@ -140,3 +140,6 @@ dist
 
 # IntelliJ Files
 .idea/
+
+# Environment Files
+.env/
