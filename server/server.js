@@ -35,7 +35,7 @@ entryRoutes.route('/').get(function(req, res) {
 });
 
 // Retreive specific entry by ID from DB 
-entryRoutes.route('/:id').get(function(req, res) {
+entryRoutes.route('/edit/:id').get(function(req, res) {
     let id = req.params.id;
     Entry.findById(id, function(err, entry) {
         res.json(entry);
