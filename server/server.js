@@ -34,14 +34,6 @@ entryRoutes.route('/').get(function(req, res) {
     });
 });
 
-// Retreive specific entry by ID from DB 
-entryRoutes.route('/edit/:id').get(function(req, res) {
-    let id = req.params.id;
-    Entry.findById(id, function(err, entry) {
-        res.json(entry);
-    });
-});
-
 // Add new blog entry to DB
 entryRoutes.route('/new').post(function(req, res) {
     let entry = new Entry(req.body);
@@ -72,5 +64,17 @@ entryRoutes.route('/edit/:id').post(function(req, res) {
     });
 });
 
-// ADD END POINT FOR DELETING ENTRY HERE
 // Remove blog entry from database
+entryRoutes.route('/delete/:id').delete(function(req, res) {
+    Entry.findByIdAndRemove(req.params.id, function(err, entry) {
+        if (!entry)
+            res.status(400).send("entry not found");
+        else {
+            const response = {
+                message: "Successfully deleted entry",
+                id: req.params.id
+            }
+            return res.status(200).send(response);
+        }
+    });
+});

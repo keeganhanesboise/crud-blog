@@ -17,8 +17,29 @@ export default class Entries extends Component {
         };
     }
 
+    deleteCard(id) {
+        let requestOptions = {
+            method: 'DELETE',
+            redirect: 'follow'
+        };
+        let url = "http://localhost:4000/entries/delete/" + id;
+        fetch(url, requestOptions)    
+            .then(async response => {
+                const data = await response.json();
+
+                if (!response.ok) {
+                    const error = (data && data.message) || response.statusText;
+                    return Promise.reject(error);
+                }
+                window.location.reload();
+            })
+            .catch(error => {
+                console.log("There was an error: ", error);
+                this.setState({ displayMessage: 'flex'});
+            });
+    }
+
     openCard(card) {
-        console.log("Card: " + card.id + " was opened");
         let idString = '/edit/' + card.id;
         let openedCard = () => {
             return (
@@ -28,7 +49,7 @@ export default class Entries extends Component {
                             <div className='NavLink'>Edit</div>
                         </Link>
                         <div className='LinkCard'>
-                            <div className='NavLink'>Delete</div>
+                            <div className='NavLink' onClick={() => this.deleteCard(card.id)}>Delete</div>
                         </div>
                     </div>
                     <p id="CardTitle">{card.title}</p>
@@ -91,8 +112,6 @@ export default class Entries extends Component {
     }
     
     render() {
-        //document.body.style.overflow = this.state.disableScroll;
-
         return (
             <div>
                 <TitleCard/>
