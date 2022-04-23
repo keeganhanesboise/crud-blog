@@ -24,7 +24,7 @@
 form {
     font-family: 'Inter', sans-serif;
     width: 50%;
-    height: 50%;
+    height: 75%;
     padding: 2vw 2vw 2vw 2vw;
     border-color: #46aadc;
     border-radius: 5px;
@@ -40,10 +40,10 @@ input, textarea {
     border-style: solid;
     border-radius: 5px;
     border-width: 2px;
-    padding: .5vw .5vw .5vw .5vw;
     margin-bottom: .5vw;
     margin-top: .5vw;
     resize: none;
+    font-size: 16px
 }
 
 input:focus, textarea:focus {
@@ -53,7 +53,8 @@ input:focus, textarea:focus {
 
 .description {
     height: 50%;
-    width: 50%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
 }
 
 #FormContainer {

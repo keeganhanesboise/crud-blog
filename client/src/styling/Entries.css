@@ -50,6 +50,7 @@ body {
     width: 90vw;
     height: 90vh;
     border-radius: 5px;
+    overflow: scroll;
 }
 
 #CardNavContainer {
