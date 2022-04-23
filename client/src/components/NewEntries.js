@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import '../styling/NewEntries.css';
 
+/**
+ * Form for adding new posts
+ */
 export default class NewEntries extends Component {    
     constructor(props) {
         super(props);
         this.state = {
-            displayForm: 'flex',
-            message: 'Uploading post...',
-            displayMessage: 'none',
-            messageColor: '#FFDB58'
+            displayForm: 'flex',            // Display class value for form
+            message: 'Uploading post...',   // Message for adding post
+            displayMessage: 'none',         // Display class value for message
+            messageColor: '#FFDB58'         // Color of message
         };
     }
     
     render() {
+
+        /**
+         * Make POST request with info box values
+         * @param {event} e 
+         */
         const handleSubmit = (e) => {
             e.preventDefault();
+
+            // If no title is given alert user
             if (e.target.elements.title.value.length < 1) {
                 alert("Please add a post title!");
             } else {
+                // Make POST request
                 let myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
                 var raw = JSON.stringify({

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import '../styling/TitleCard.css'
 
+/**
+ * Title for home page
+ */
 export default class TitleCard extends Component {
     render() {
         return (

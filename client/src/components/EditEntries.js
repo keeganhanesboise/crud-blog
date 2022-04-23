@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
 import '../styling/NewEntries.css';
 
-
+/**
+ * Form for editing exisiting posts
+ */
 export default class EditEntries extends Component {
     
     constructor(props) {
         super(props);
         this.state = {
-            displayForm: 'flex',
-            message: 'Updating post...',
-            displayMessage: 'none',
-            messageColor: '#FFDB58',
+            displayForm: 'flex',            // Display class value for form
+            message: 'Updating post...',    // Message for adding post
+            displayMessage: 'none',         // Display class value for message
+            messageColor: '#FFDB58',        // Color of message
         };
     }
 
     render() {
+        
+        /**
+        * Make POST request with new info box values for post matching id in the current pathname
+        * @param {event} e 
+         */
         const handleSubmit = (e) => {
             e.preventDefault();
+
+            // If no title is given alert user
             if (e.target.elements.title.value.length < 1) {
                 alert("Please add a post title!");
             } else {
+                // Make POST request
                 let myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
                 var raw = JSON.stringify({
@@ -40,6 +50,7 @@ export default class EditEntries extends Component {
                 
                         // check for error response
                         if (!response.ok) {
+
                             // get error message from body or default to response status
                             const error = (data && data.message) || response.status;
                             return Promise.reject(error);

@@ -3,20 +3,28 @@ import TitleCard from './TitleCard';
 import { Link } from 'react-router-dom';
 import '../styling/Entries.css'
 
+
+/**
+ * Acts as home page for blog, displays all posts
+ */
 export default class Entries extends Component {    
     constructor(props) {
         super(props);
         this.state = {
-            blogPosts: [],
-            blogCards: [],
-            entryData: [],
-            displayMessage: 'none',
-            displayCard: 'none',
-            displayCards: 'flex',
-            openedCard: [],
+            blogPosts: [],              // Array of posts
+            blogCards: [],              // Array of cards
+            displayMessage: 'none',     // Dispaly class value for warning message when fetching cards failed 
+            displayCard: 'none',        // Display class value for specific card
+            displayCards: 'flex',       // Display class value for all cards
+            openedCard: [],             // HMTL object of opened card
         };
     }
 
+    /**
+     * Makes DELETE request for card <id>
+     * 
+     * @param {number} id 
+     */
     deleteCard(id) {
         let requestOptions = {
             method: 'DELETE',
@@ -39,6 +47,11 @@ export default class Entries extends Component {
             });
     }
 
+    /**
+     * Creates and displays a larger card with the same data as <card>
+     * 
+     * @param {object} card
+     */
     openCard(card) {
         let idString = '/edit/' + card.id;
         let openedCard = () => {
@@ -66,6 +79,11 @@ export default class Entries extends Component {
         this.setState({ displayCard: 'flex' });
     }
 
+    /**
+     * Adds fetched cards to DOM
+     * 
+     * @param {object} data 
+     */
     retrieveCards(data) {
         let tempPosts = this.state.blogPosts;
         data.forEach(post => {
@@ -94,6 +112,10 @@ export default class Entries extends Component {
         this.setState({blogCards: tempCards});
     }
 
+    /**
+     * When the component mounts, make a GET request for all posts
+     * and call method to update cards, otherwise throw error
+     */
     componentDidMount() {
         fetch('http://localhost:4000/entries')
             .then(async response => {

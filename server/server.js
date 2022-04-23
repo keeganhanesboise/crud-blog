@@ -5,23 +5,26 @@ const cors = require('cors');
 const { default: mongoose } = require('mongoose');
 const entryRoutes = express.Router();
 const PORT = 4000;
-
-require("dotenv").config({ path: "./config.env" });
 let Entry = require('./entries');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/entries', entryRoutes);
 
-const database = process.env.ATLAS_URI;
+// Environment file with database login
+require("dotenv").config({ path: "./config.env" });
 
+// Connect to mongoDB
+const database = process.env.ATLAS_URI;
 mongoose.connect(database, { useNewUrlParser: true });
 const connection = mongoose.connection;
 
+// Check for successful connection
 connection.once('open', function() {
     console.log("Successfully connected to DB!");
 });
 
+// Check that server ran successfully
 app.listen(PORT, function() {
     console.log("Keegan's Blog is running on Port: " + PORT);
 });
