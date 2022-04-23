@@ -5,5 +5,8 @@
         "client": "cd client && npm install && npm start",
         "server": "cd server && npm install && nodemon server",
         "start": "concurrently \"npm run client\" \"npm run server\""
+    },
+    "dependencies": {
+        "concurrently": "^7.1.0"
     }
 }

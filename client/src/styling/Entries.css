@@ -84,6 +84,8 @@ body {
     background-color: white;
     width: 50%;
     border-radius: 5px;
+    max-height: 50%;
+    overflow: hidden;
 }
 
 #CardTitle {
