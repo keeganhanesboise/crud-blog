@@ -1,8 +1,4 @@
-# Final website for CS401
-
-Name: Keegan Hanes
-
-Email: keeganhanes@u.boisestate.edu
+# Blog (Crud Application)
 
 ## How to run this website
 
